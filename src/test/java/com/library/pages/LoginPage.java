@@ -20,8 +20,8 @@ public class LoginPage {
     @FindBy(xpath="//button[@type='submit']")
     public WebElement loginButton;
 
-    public void login(String username, String password) {
-        inputEmail.sendKeys(username);
+    public void login(String email, String password) {
+        inputEmail.sendKeys(email);
         inputPassword.sendKeys(password);
         loginButton.click();
     }
