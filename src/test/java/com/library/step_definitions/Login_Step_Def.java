@@ -8,14 +8,17 @@ import io.cucumber.java.en.When;
 
 public class Login_Step_Def {
     LoginPage loginPage = new LoginPage();
+    String email;
+
     @Given("user on the login page")
     public void user_on_the_login_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("library_url"));
 
     }
     @When("user enters username {string} and passcode {string} and clicks the login button")
     public void user_enters_username_and_passcode_and_clicks_the_login_button(String email, String password) {
-        loginPage.login(email,password);
+        loginPage.login(email, password);
+        this.email = email;
     }
 
 }

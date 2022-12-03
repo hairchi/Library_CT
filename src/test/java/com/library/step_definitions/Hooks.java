@@ -1,7 +1,9 @@
 package com.library.step_definitions;
 
+import com.library.utility.DB_Util;
 import com.library.utility.Driver;
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -22,6 +24,20 @@ public class Hooks {
 
         Driver.closeDriver();
     }
+
+    // Conditional/Custom Hooks (come from io.cucumber.java)
+    @Before("@db")   // import io.cucumber.java.Before; --> Before hook
+    public void setupDB(){
+        DB_Util.createConnection();
+        System.out.println("connecting to database.....");
+    }
+
+    @After("@db")   // import io.cucumber.java.After; --> After hook
+    public void destroyDB() {
+        DB_Util.destroy();
+        System.out.println("closing connection....");
+    }
+
 
     //@Before
     public void setupScenario(){
