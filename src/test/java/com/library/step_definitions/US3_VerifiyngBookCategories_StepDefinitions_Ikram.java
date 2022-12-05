@@ -59,7 +59,6 @@ public class US3_VerifiyngBookCategories_StepDefinitions_Ikram {
         DB_Util.runQuery(query);
         expectedCategories = DB_Util.getColumnDataAsList("name");
 
-
     }
     @Then("verify book categories must match book_categories table from db")
     public void verify_book_categories_must_match_book_categories_table_from_db() {
