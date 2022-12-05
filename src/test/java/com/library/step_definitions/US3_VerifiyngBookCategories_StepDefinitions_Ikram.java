@@ -47,7 +47,6 @@ public class US3_VerifiyngBookCategories_StepDefinitions_Ikram {
         actualCategories.remove(0);
         System.out.println("actualCategories = " + actualCategories);
 
-
     }
     List<String> expectedCategories;
     @When("I execute query to get book categories")
