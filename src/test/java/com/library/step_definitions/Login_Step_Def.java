@@ -4,7 +4,6 @@ import com.library.pages.LoginPage;
 import com.library.utility.ConfigurationReader;
 import com.library.utility.Driver;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Login_Step_Def {

@@ -11,14 +11,14 @@ public class Driver {
 
     /*
      Creating a private constructor, so we are closing access to the object of this class
-     from outside of any classes
+     from outside  any classes
      */
     private Driver() {
     }
 
     /*
-    Making our 'driver' instance private, so that it is not reachable from outside of any class
-    We make it static, because we want it to run before anyting else,
+    Making our 'driver' instance private, so that it is not reachable from outside any class
+    We make it static, because we want it to run before anything else,
     also we will use it in static method
      */
     private static InheritableThreadLocal <WebDriver> driverPool = new InheritableThreadLocal<>();
@@ -28,7 +28,7 @@ public class Driver {
      */
     public static WebDriver getDriver() {
 
-        if (driverPool == null) {  // if driver/browser was never opened
+        if (driverPool.get() == null) {  // if driver/browser was never opened
 
             String browserType = ConfigurationReader.getProperty("browser");
 
@@ -59,9 +59,9 @@ public class Driver {
 
 
     public static void closeDriver() {
-        if (driverPool != null) {
-            driverPool.get().quit(); // this line will kill the session. value will noy be null
-            driverPool = null;
+        if (driverPool.get() != null) {
+            driverPool.get().quit(); // this line will terminate the existing session, driver value will not even be null yet
+            driverPool.remove();
         }
     }
 }
