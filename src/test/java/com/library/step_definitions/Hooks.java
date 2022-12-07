@@ -1,8 +1,8 @@
 package com.library.step_definitions;
 
+import com.library.utility.DB_Util;
 import com.library.utility.Driver;
-import io.cucumber.java.After;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -22,6 +22,7 @@ public class Hooks {
 
         Driver.closeDriver();
     }
+
 
     //@Before
     public void setupScenario(){
@@ -44,6 +45,7 @@ public class Hooks {
 
     //@BeforeStep
     public void setupScenarioStep(){
+
         System.out.println("--------> applying setup using @BeforeStep");
     }
 
@@ -51,5 +53,18 @@ public class Hooks {
     public void afterStep(){
         System.out.println("--------> applying tearDown using @AfterStep");
     }
+
+
+//    @Before("@db")
+//    public void stepDB(){
+//        DB_Util.createConnection();
+//        System.out.println("connecting to database...");
+//    }
+//
+//    @After("@db")
+//    public void destroyDB(){
+//        DB_Util.destroy();
+//        System.out.println("closing connection...");
+//    }
 
 }

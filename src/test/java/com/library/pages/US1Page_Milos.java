@@ -1,5 +1,5 @@
 package com.library.pages;
 
-public class Dashboard {
+public class US1Page_Milos {
 
 }
