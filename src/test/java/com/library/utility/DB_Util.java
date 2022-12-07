@@ -44,6 +44,7 @@ public class DB_Util {
         String username = ConfigurationReader.getProperty("library2.db.username");
         String password = ConfigurationReader.getProperty("library2.db.password");
 
+
         createConnection(url, username, password);
 
     }
