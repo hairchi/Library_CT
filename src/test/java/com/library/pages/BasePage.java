@@ -1,0 +1,37 @@
+package com.library.pages;
+
+import com.library.utility.Driver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public abstract class BasePage {
+    WebElement upperMenu;
+    public BasePage() {
+        PageFactory.initElements(Driver.getDriver(),this);
+    }
+    @FindBy(xpath = "//span[@class='title'][.='Dashboard']")
+    public WebElement dashboard;
+
+    @FindBy(xpath = "//span[@class='title'][.='Users']")
+    public WebElement users;
+
+    @FindBy(xpath = "//span[@class='title'][.='Books']")
+    public WebElement books;
+
+    @FindBy(xpath = "//a[@id='navbarDropdown']")
+    public WebElement accountHolderName;
+
+    @FindBy(linkText = "Log Out")
+    public WebElement logOutLink;
+
+    public void logOut(){
+        accountHolderName.click();
+        logOutLink.click();
+    }
+    public void navigateToModule(String moduleName){
+        Driver.getDriver().findElement(By.xpath("//span[@class='title'][.='"+moduleName+"']")).click();
+    }
+
+}
