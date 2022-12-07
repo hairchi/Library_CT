@@ -26,6 +26,10 @@ public abstract class BasePage {
     @FindBy(linkText = "Log Out")
     public WebElement logOutLink;
 
+    @FindBy(xpath = "//span[@class='title'][.='Books']")
+    public WebElement BooksPage;
+
+
     public void logOut(){
         accountHolderName.click();
         logOutLink.click();
